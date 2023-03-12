@@ -1,4 +1,4 @@
-"""flights_proj URL Configuration
+"""imdb URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,9 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
+from flights_app.views.auth import signup, me, UserViewSet
+
+router = DefaultRouter()
+router.register('', UserViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("api/v1/auth/", include('flights_app.urls.auth')),
-    path("api/v1/flight/", include('flights_app.urls.flight'))
+    path('signup/', signup),
+    path('token/', TokenObtainPairView.as_view()),
+    path('token/refresh/', TokenRefreshView.as_view()),
+    path('me/', me),
+    # path('v1/stats', total)
 ]
+urlpatterns.extend(router.urls)
