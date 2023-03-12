@@ -1,6 +1,7 @@
 from datetime import datetime, time
 
 from rest_framework import mixins
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import BasePermission
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
@@ -8,10 +9,15 @@ from flights_app.models import Flight
 from flights_app.serializers.flight import FlightSerializer
 
 
+class FlightsPaginationClass(PageNumberPagination):
+    page_size = 10
+
+
 class FlightsPermissions(BasePermission):
     def has_permission(self, request, view):
         if request.method in ['PATCH', 'PUT', 'POST']:
             return request.user.is_authenticated and request.user.is_staff
+        return True
 
 
 # ModelViewSet

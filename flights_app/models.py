@@ -36,7 +36,7 @@ class Order(models.Model):
     total_price = models.FloatField(db_column='total_price')
 
     def clean(self):
-        if self.num_seats > self.flight.seats_left:
+        if self.seats > self.flight.seats_left:
             raise ValidationError(f'The number of ordered seats cannot exceed the available seats on the flight. '
                                   f'Only {self.flight.seats_left} places left')
 
@@ -47,12 +47,16 @@ class Order(models.Model):
     #         })
 
     def save(self, *args, **kwargs):
-        self.full_clean()  # validate the Order object
+        # self.full_clean()  # validate the Order object
+        self.total_price = self.seats * self.flight.price
         super().save(*args, **kwargs)  # save the Order object
 
         # update the Flight object with the new seats_left value
         self.flight.seats_left -= self.seats
         self.flight.save(update_fields=['seats_left'])
+
+        # Order.save(update_fields=['total_price'])
+
 
     class Meta:
         db_table = 'orders'
