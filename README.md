@@ -44,10 +44,10 @@ The following endpoints are available in the API:
 
 - **Authentication Endpoints:**
 
-> - **POST /api/v1/auth/signup/**: Create a new user account.
-> - **POST /api/v1/auth/token/**: Obtain an access and refresh token.
-> - **POST /api/v1/auth/token/refresh/**: Refresh an access token.
-> - **GET /api/v1/auth/me/**: Get the details of the currently authenticated user.
+> - **POST /api/v1/auth/signup/** - Create a new user account.
+> - **POST /api/v1/auth/token/**-  Obtain an access and refresh token.
+> - **POST /api/v1/auth/token/refresh/** - Refresh an access token.
+> - **GET /api/v1/auth/me/** - Get the details of the currently authenticated user.
 
 - **Flight Endpoints:**
 
