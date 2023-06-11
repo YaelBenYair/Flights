@@ -51,19 +51,19 @@ The following endpoints are available in the API:
 
 - **Flight Endpoints:**
 
-**GET /api/v1/flight/** - Retrieve a list of flights with optional filtering parameters.
-**POST /api/v1/flight/** - Create a new flight (requires staff authentication).
-**GET /api/v1/flight/{flight_id}/** - Retrieve details of a specific flight.
-**PUT /api/v1/flight/{flight_id}/** - Update details of a specific flight (requires staff authentication).
-**PATCH /api/v1/flight/{flight_id}/** - Partially update details of a specific flight (requires staff authentication).
+> - **GET /api/v1/flight/** - Retrieve a list of flights with optional filtering parameters.
+> - **POST /api/v1/flight/** - Create a new flight (requires staff authentication).
+> - **GET /api/v1/flight/{flight_id}/** - Retrieve details of a specific flight.
+> - **PUT /api/v1/flight/{flight_id}/** - Update details of a specific flight (requires staff authentication).
+> - **PATCH /api/v1/flight/{flight_id}/** - Partially update details of a specific flight (requires staff authentication).
 
 - **Order Endpoints:**
 
-**GET /api/v1/order/** - Retrieve a list of orders (requires staff authentication) or user-specific orders.
-**POST /api/v1/order/** - Create a new order.
-**GET /api/v1/order/{order_id}/** - Retrieve details of a specific order (requires staff authentication or owner access).
-**PUT /api/v1/order/{order_id}/** - Update details of a specific order (requires owner access).
-**PATCH /api/v1/order/{order_id}/** - Partially update details of a specific order (requires owner access).
+> - **GET /api/v1/order/** - Retrieve a list of orders (requires staff authentication) or user-specific orders.
+> - **POST /api/v1/order/** - Create a new order.
+> - **GET /api/v1/order/{order_id}/** - Retrieve details of a specific order (requires staff authentication or owner access).
+> - **PUT /api/v1/order/{order_id}/** - Update details of a specific order (requires owner access).
+> - **PATCH /api/v1/order/{order_id}/** - Partially update details of a specific order (requires owner access).
 
 Please note that some endpoints require authentication and certain operations are restricted to staff members.
 
