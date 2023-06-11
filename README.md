@@ -1,4 +1,4 @@
-### Flights Repository
+# Flights Repository
 This repository contains a flight management system project developed as part of a study program. The system allows users to search for flights, book flights, and perform other related operations.
 
 ## Table of Contents
